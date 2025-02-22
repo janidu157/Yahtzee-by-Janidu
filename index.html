@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahtzee by JCS</title>
+    <!-- <link rel="icon" type="image/x-icon" href="/JCS_Logo.png"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" letegrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameboard">
+        <div id="left_area">
+            <div id="game_title">
+                <h1 id="yahtzee">YAHTZEE</h1>
+            </div>
+            <div id="game_area">
+                <div id="players">
+                    <div class="player" id="bot">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <p>V-Deva</p>
+                    </div>
+                    <div class="player" id="user">
+                        <i class="fa-solid fa-user"></i>
+                        <p>You</p>
+                    </div>
+                </div>
+                <div id="play_area">
+                    <div id="message_area">
+                        <span id="msg_content"><p id="msg_text">Click 'Roll Dice' to begin</p></span>
+                    </div>
+                    <div id="rolling_area">
+                        <div class="dicespace" id="dice1_space">
+                            <div class="dice_base" id="dice_base_one"><i class="fa-solid fa-dice-six" id="one" ></i></div>
+                        </div>
+                        <div class="dicespace" id="dice2_space">
+                            <div class="dice_base" id="dice_base_two"><i class="fa-solid fa-dice-six" id="two"></i></div>
+                        </div>
+                        <div class="dicespace" id="dice3_space">
+                            <div class="dice_base" id="dice_base_three"><i class="fa-solid fa-dice-six" id="three"></i></div>
+                        </div>
+                        <div class="dicespace" id="dice4_space">
+                            <div class="dice_base" id="dice_base_four"><i class="fa-solid fa-dice-six" id="four"></i></div>
+                        </div>
+                        <div class="dicespace" id="dice5_space">
+                            <div class="dice_base" id="dice_base_five"><i class="fa-solid fa-dice-six" id="five"></i></div>
+                        </div>
+                    </div> 
+                    <div id="rolling_button">
+                        <button id="roll_dice">Roll Dice</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right_area">
+            <div id="base_Score_board">
+                <table id="score_board">
+                    <thead>
+                        <tr>
+                            <th class="col1 thead">Category</th>
+                            <th class="col2 thead">You</th>
+                            <th class="col3 thead">V-Deva</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col1">Ones</td>
+                            <td class="col2" id="ones_you">0</td>
+                            <td class="col3" id="ones_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Twos</td>
+                            <td class="col2" id="twos_you">0</td>
+                            <td class="col3" id="twos_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Threes</td>
+                            <td class="col2" id="threes_you">0</td>
+                            <td class="col3" id="threes_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Fours</td>
+                            <td class="col2" id="fours_you">0</td>
+                            <td class="col3" id="fours_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Fives</td>
+                            <td class="col2" id="fives_you">0</td>
+                            <td class="col3" id="fives_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Sixes</td>
+                            <td class="col2" id="sixes_you">0</td>
+                            <td class="col3" id="sixes_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1 bonus">Sum</td>
+                            <td class="col2 bonus" id="bonus_you">0</td>
+                            <td class="col3 bonus" id="bonus_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1 sum">Bonus</td>
+                            <td class="col2 sum" id="sum_you">0</td>
+                            <td class="col3 sum" id="sum_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Three of a kind</td>
+                            <td class="col2" id="toak_you">0</td>
+                            <td class="col3" id="toak_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Four of a kind</td>
+                            <td class="col2" id="foak_you">0</td>
+                            <td class="col3" id="foak_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Full House</td>
+                            <td class="col2" id="f_h_you">0</td>
+                            <td class="col3" id="f_h_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Small Straight</td>
+                            <td class="col2" id="s_s_you">0</td>
+                            <td class="col3" id="s_s_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Large Straight</td>
+                            <td class="col2" id="l_s_you">0</td>
+                            <td class="col3" id="l_s_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Chance</td>
+                            <td class="col2" id="chance_you">0</td>
+                            <td class="col3" id="chance_bot">0</td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Yahtzee</td>
+                            <td class="col2" id="yahtzee_you">0</td>
+                            <td class="col3" id="yahtzee_bot">0</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="col1 tfoot">Total Score</td>
+                            <td class="col2 tfoot" id="total_score_you">0</td>
+                            <td class="col3 tfoot" id="total_score_bot">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <div id="winner_card_base">
+        <div id="winner_card">
+            <div id="w_or_l_msg">
+                <p id="primary_msg">Congratulations!</p>
+                <!-- <p id="primary_msg">Better luck next time!</p> -->
+                <P id="secondary_msg">Luck and skill were on your side you are the yahtzee champion</P>
+            </div>
+            <div id="final_scores">
+                <div class="final_score" id="user_score">
+                    <p class="player_name" id="player_user">YOU</p>
+                    <P class="f_score_value" id="final_scores_user">000</P>
+                </div>
+                <div id="v-deva_icon"><i class="fa-solid fa-user-secret"></i></div>
+                <div class="final_score" id="bot_score">
+                    <p class="player_name" id="player_bot">V-DEVA</p>
+                    <P class="f_score_value" id="final_scores_bot">000</P>
+                </div>
+            </div>
+            <div id="play_again">
+                <button id="play_again_btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <span id="copyright">
+        <i class="fa-regular fa-copyright"></i>
+        <p>2025 Janidu Chamupathi. All Right Reserved.</p>
+    </span>
+    
+    <script src="app.js"></script>
+</body>
+</html>
